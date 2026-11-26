@@ -1,0 +1,103 @@
+{
+  "$schema": "https://accountstatus.dev/schemas/universal-status-object/v0.1.json",
+  "usoVersion": "0.1.0",
+  "id": "uso_01J8X7K2M3N4P5Q6R7S8T9",
+  "createdAt": "2026-11-26T17:30:00Z",
+  "updatedAt": "2026-11-26T17:32:14Z",
+
+  "payment": {
+    "amount": {
+      "value": "12500.00",
+      "currency": "USD"
+    },
+    "direction": "credit",
+    "purpose": "vendor_payment",
+    "identifiers": {
+      "endToEndId": "E2E-2026-11-26-88421",
+      "uetr": "97a1b2c3-d4e5-6789-abcd-ef0123456789",
+      "networkSpecific": {
+        "achTraceNumber": "123456789012345",
+        "fedNowTxId": null,
+        "swiftUetr": "97a1b2c3-d4e5-6789-abcd-ef0123456789",
+        "cardAuthCode": null,
+        "blockchainTxHash": null
+      }
+    }
+  },
+
+  "state": {
+    "status": "settled",
+    "subStatus": "available",
+    "lifecyclePhase": "completed",
+    "finality": {
+      "level": "irrevocable",
+      "confidence": 1.0,
+      "reversalWindowEndsAt": null,
+      "notes": "FedNow credit transfer; settlement is final and irrevocable under Regulation J upon acceptance."
+    },
+    "fundsAvailability": "immediate"
+  },
+
+  "timestamps": {
+    "instructionReceivedAt": "2026-11-26T17:29:58.120Z",
+    "networkAcceptedAt": "2026-11-26T17:30:01.450Z",
+    "settledAt": "2026-11-26T17:30:01.890Z",
+    "fundsAvailableAt": "2026-11-26T17:30:01.890Z",
+    "lastObservedAt": "2026-11-26T17:32:14.000Z",
+    "finalizedAt": "2026-11-26T17:30:01.890Z"
+  },
+
+  "evidence": [
+    {
+      "id": "ev_01J8X7K2M3N4P5Q6R7S8T9_001",
+      "sourceNetwork": "FedNow",
+      "observedAt": "2026-11-26T17:30:01.890Z",
+      "nativeStatus": {
+        "code": "ACCC",
+        "name": "AcceptedCreditSettlementCompleted",
+        "description": "Settlement on the creditor's account has been completed."
+      },
+      "nativeMessageType": "pacs.002",
+      "rawSnippet": {
+        "TxSts": "ACCC",
+        "AccptncDtTm": "2026-11-26T17:30:01.890Z"
+      },
+      "provenance": {
+        "collector": "AccountStatus Intelligence",
+        "collectorVersion": "0.1.0",
+        "ingestionMethod": "direct_feed",
+        "hash": "sha256:8f3a2b1c9d0e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9"
+      }
+    }
+  ],
+
+  "explanation": {
+    "human": "The payment of $12,500.00 USD has completed. Funds are available in the recipient account and the transfer is final under FedNow rules. No further action is required.",
+    "machine": {
+      "summaryCode": "SETTLED_IRREVOCABLE",
+      "reasonCodes": ["ACCC"],
+      "riskFlags": []
+    }
+  },
+
+  "permittedNextActions": [
+    {
+      "action": "none",
+      "description": "No further network actions are available or required. Payment is final."
+    }
+  ],
+
+  "networkContext": {
+    "primaryNetwork": "FedNow",
+    "operator": "Federal Reserve",
+    "settlementModel": "real_time_gross",
+    "operatingHours": "24x7x365"
+  },
+
+  "meta": {
+    "schemaVersion": "0.1.0",
+    "generatedBy": "AccountStatus Intelligence",
+    "confidence": 0.99,
+    "notes": "Reference instance of the Universal Status Object (USO). Designed to be network-agnostic while preserving original evidence and finality semantics."
+  }
+}
